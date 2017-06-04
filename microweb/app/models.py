@@ -1,11 +1,27 @@
 from app import db
+from werkzeug import generate_password_hash, check_password_hash
 
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nickname = db.Column(db.String(64), index=True, unique=True)
+    password_hash = db.Column(db.String(64))
     email = db.Column(db.String(120), index=True, unique=True)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+    @staticmethod
+    def register(username, password):
+        user = User(nickname=username)
+        user.set_password(password)
+        db.session.add(user)
+        db.session.commit()
+        return user
 
     @property
     def is_authenticated(self):
