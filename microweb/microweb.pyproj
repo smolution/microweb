@@ -33,10 +33,17 @@
     <Folder Include="app\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\static\" />
+    <Folder Include="db_repository\" />
+    <Folder Include="db_repository\versions\" />
+    <Folder Include="db_repository\versions\__pycache__\" />
+    <Folder Include="db_repository\__pycache__\" />
     <Folder Include="tmp\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="app\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\views.py">
@@ -48,14 +55,34 @@
     <Compile Include="config.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="db_create.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="db_downgrade.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="db_migrate.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="db_repository\manage.py" />
+    <Compile Include="db_repository\versions\__init__.py" />
+    <Compile Include="db_repository\__init__.py" />
+    <Compile Include="db_upgrade.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="run.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app.db" />
     <Content Include="app\templates\base.html" />
     <Content Include="app\templates\index.html" />
     <Content Include="app\templates\login.html" />
+    <Content Include="db_repository\migrate.cfg" />
+    <Content Include="db_repository\README" />
+    <Content Include="db_repository\versions\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="db_repository\__pycache__\__init__.cpython-36.pyc" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="flask\">
