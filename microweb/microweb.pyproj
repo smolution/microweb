@@ -6,7 +6,7 @@
     <ProjectGuid>49f2d85a-ca6f-4db5-b146-1936361a0a86</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
-    <StartupFile>run.py</StartupFile>
+    <StartupFile>runp.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -16,7 +16,8 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>microweb</Name>
     <RootNamespace>microweb</RootNamespace>
-    <InterpreterId>MSBuild|flask|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|VisualStudio|Flask</InterpreterId>
+    <WebBrowserPort>5000</WebBrowserPort>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,9 @@
     <Compile Include="app\models.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="runp.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\views.py">
       <SubType>Code</SubType>
     </Compile>
@@ -73,12 +77,20 @@
     <Compile Include="run.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tests.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.db" />
+    <Content Include="app\templates\404.html" />
+    <Content Include="app\templates\500.html" />
     <Content Include="app\templates\base.html" />
+    <Content Include="app\templates\edit.html" />
     <Content Include="app\templates\index.html" />
     <Content Include="app\templates\login.html" />
+    <Content Include="app\templates\post.html" />
+    <Content Include="app\templates\user.html" />
     <Content Include="db_repository\migrate.cfg" />
     <Content Include="db_repository\README" />
     <Content Include="db_repository\versions\__pycache__\__init__.cpython-36.pyc" />
